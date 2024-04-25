@@ -3,14 +3,13 @@ export const colors = {
     main: '#1D4ED8',
   },
   grey: {
-    heading: '#111719',
-    subHeading: '#30384F',
+    heading: '#18181B',
+    subHeading: '#71717A',
     info: '#5B5B5E',
-    label: '#9796A1',
+    label: '#3F3F46',
     textInputBorder: '#EEEEEE',
     textInputColor: '#111719',
     placeholder: '#7D7B8A',
-    main: '#000000',
   },
   white: {
     main: '#FFFFFF',
