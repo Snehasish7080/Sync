@@ -8,18 +8,24 @@ export const styles = ScaledSheet.create({
     backgroundColor: colors.white.main,
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     paddingHorizontal: '16@s',
+    paddingVertical: '90@vs',
+  },
+  contentContainer: {
+    width: '100%',
   },
   heading: {
     color: colors.grey.heading,
     fontSize: getFontSize(28),
     fontFamily: fontFamily.poppinsSemiBold,
+    textAlign: 'center',
   },
   subHeading: {
     color: colors.grey.subHeading,
     fontSize: getFontSize(15),
-    marginBottom: '114@vs',
+    marginBottom: '100@vs',
+    textAlign: 'center',
   },
   textInput: {
     width: '100%',
@@ -27,5 +33,27 @@ export const styles = ScaledSheet.create({
   authBtn: {
     width: '100%',
     marginTop: '36@vs',
+  },
+  inputContainer: {
+    width: '100%',
+  },
+  termsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 250,
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
+  termsText: {
+    fontSize: getFontSize(13),
+    color: colors.grey.label,
+    lineHeight: getFontSize(22),
+  },
+  termsLink: {
+    fontSize: getFontSize(13),
+    color: colors.primary.main,
+    fontFamily: fontFamily.poppinsMedium,
+    marginHorizontal: 5,
+    lineHeight: getFontSize(22),
   },
 });

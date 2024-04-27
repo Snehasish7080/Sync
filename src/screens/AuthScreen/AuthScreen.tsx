@@ -11,7 +11,7 @@ type loginData = {
   mobile: string;
 };
 const AuthScreen = () => {
-  const {control, handleSubmit, setValue} = useForm<loginData>({
+  const {control, handleSubmit} = useForm<loginData>({
     defaultValues: {
       mobile: '',
     },
@@ -23,22 +23,42 @@ const AuthScreen = () => {
   };
   return (
     <View style={styles.mainContainer}>
-      <AppText style={styles.heading}>Account</AppText>
-      <AppText style={styles.subHeading}>
-        Login/Create an account to get started
-      </AppText>
-      <AppTextInput
-        name={'mobile'}
-        control={control}
-        lable="Mobile Number"
-        labelStyle={{
-          marginTop: verticalScale(20),
-        }}
-        placeholder="Enter Mobile Number"
-        keyboardType="number-pad"
-        style={styles.textInput}
-      />
-      <AppButton style={styles.authBtn}>Get OTP</AppButton>
+      <View style={styles.contentContainer}>
+        <View>
+          <AppText style={styles.heading}>Account</AppText>
+          <AppText style={styles.subHeading}>
+            Login/Create an account to get started
+          </AppText>
+        </View>
+        <View style={styles.inputContainer}>
+          <AppTextInput
+            name={'mobile'}
+            control={control}
+            lable="Mobile Number"
+            labelStyle={{
+              marginTop: verticalScale(20),
+            }}
+            placeholder="Enter Mobile Number"
+            keyboardType="number-pad"
+            style={styles.textInput}
+          />
+          <AppButton
+            style={styles.authBtn}
+            onPress={() => {
+              handleSubmit(onSubmit)();
+            }}>
+            Get OTP
+          </AppButton>
+        </View>
+      </View>
+      <View style={styles.termsContainer}>
+        <AppText style={styles.termsText}>
+          By Signing up, you agree to our
+        </AppText>
+        <AppText style={styles.termsLink}>Terms of service</AppText>
+        <AppText style={styles.termsText}>and</AppText>
+        <AppText style={styles.termsLink}>Privacy Policy</AppText>
+      </View>
     </View>
   );
 };
