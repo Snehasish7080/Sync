@@ -2,7 +2,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type UnAuthenticatedRouteList = {
   AuthScreen: undefined;
-  VerificationScreen: undefined;
+  OtpVerificationScreen: {opt: string};
 };
 
 export type UnAuthenticatedNavigationProp<

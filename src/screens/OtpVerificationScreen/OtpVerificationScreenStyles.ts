@@ -25,7 +25,7 @@ export const styles = ScaledSheet.create({
   subHeading: {
     color: colors.grey.subHeading,
     fontSize: getFontSize(15),
-    marginBottom: '100@vs',
+    marginBottom: '40@vs',
     textAlign: 'center',
   },
   textInput: {
@@ -38,23 +38,19 @@ export const styles = ScaledSheet.create({
   inputContainer: {
     width: '100%',
   },
-  termsContainer: {
+  resendOtpContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: 250,
-    flexWrap: 'wrap',
     justifyContent: 'center',
+    marginTop: '40@vs',
   },
-  termsText: {
-    fontSize: getFontSize(13),
+  resendOtpText: {
     color: colors.grey.label,
-    lineHeight: getFontSize(22),
+    fontSize: getFontSize(14),
   },
-  termsLink: {
-    fontSize: getFontSize(13),
+  resendOtpLink: {
     color: colors.primary.main,
+    fontSize: getFontSize(14),
     fontFamily: fontFamily.poppinsMedium,
-    marginHorizontal: 5,
-    lineHeight: getFontSize(22),
   },
 });

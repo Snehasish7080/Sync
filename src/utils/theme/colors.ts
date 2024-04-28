@@ -7,7 +7,7 @@ export const colors = {
     subHeading: '#71717A',
     info: '#5B5B5E',
     label: '#3F3F46',
-    textInputBorder: '#EEEEEE',
+    textInputBorder: '#D4D4D8',
     textInputColor: '#111719',
     placeholder: '#7D7B8A',
   },

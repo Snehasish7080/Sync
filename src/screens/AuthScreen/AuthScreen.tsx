@@ -6,11 +6,14 @@ import {useForm} from 'react-hook-form';
 import AppTextInput from '../../atoms/AppTextInput/AppTextInput';
 import {verticalScale} from 'react-native-size-matters';
 import AppButton from '../../atoms/AppButton/AppButton';
+import {UnAuthenticatedNavProps} from '../../navigations/UnAuthenticated/UnAuthenticatedTypes';
 
 type loginData = {
   mobile: string;
 };
-const AuthScreen = () => {
+const AuthScreen: React.FC<UnAuthenticatedNavProps<'AuthScreen'>> = ({
+  navigation,
+}) => {
   const {control, handleSubmit} = useForm<loginData>({
     defaultValues: {
       mobile: '',
@@ -20,6 +23,9 @@ const AuthScreen = () => {
 
   const onSubmit = (data: loginData) => {
     console.log(data);
+    navigation.navigate('OtpVerificationScreen', {
+      opt: '1111',
+    });
   };
   return (
     <View style={styles.mainContainer}>
