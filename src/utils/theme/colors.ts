@@ -10,6 +10,7 @@ export const colors = {
     textInputBorder: '#D4D4D8',
     textInputColor: '#111719',
     placeholder: '#7D7B8A',
+    cardBorder: '#E4E4E7',
   },
   white: {
     main: '#FFFFFF',

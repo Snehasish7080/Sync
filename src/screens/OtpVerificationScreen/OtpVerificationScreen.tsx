@@ -5,11 +5,15 @@ import {styles} from './OtpVerificationScreenStyles';
 import AppText from '../../atoms/AppText/AppText';
 import AppButton from '../../atoms/AppButton/AppButton';
 import OtpInput from '../../atoms/OtpInput/OtpInput';
+import {StackActions} from '@react-navigation/native';
+import {UnAuthenticatedNavProps} from '../../navigations/UnAuthenticated/UnAuthenticatedTypes';
 
 type otpData = {
   otp: string;
 };
-const OtpVerificationScreen = () => {
+const OtpVerificationScreen: React.FC<
+  UnAuthenticatedNavProps<'OtpVerificationScreen'>
+> = ({navigation}) => {
   const {control, handleSubmit} = useForm<otpData>({
     defaultValues: {
       otp: '',
@@ -19,6 +23,7 @@ const OtpVerificationScreen = () => {
 
   const onSubmit = (data: otpData) => {
     console.log(data);
+    navigation.dispatch(StackActions.replace('Authenticated'));
   };
 
   return (

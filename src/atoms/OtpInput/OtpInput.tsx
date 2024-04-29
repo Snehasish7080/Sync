@@ -32,41 +32,48 @@ const OtpInput: React.FC<OtpInputProps> = ({onChange}) => {
   return (
     <View style={styles.container}>
       {otp.map((digit, index) => (
-        <TextInput
+        <View
           key={index}
-          style={[
-            styles.box,
-            {
-              borderColor:
-                focusedIndex === index
-                  ? colors.primary.main
-                  : colors.grey.textInputBorder,
-              borderWidth: focusedIndex === index ? 1.5 : 1,
-            },
-          ]}
-          maxLength={1}
-          keyboardType="numeric"
-          onChangeText={value => handleOtpChange(value, index)}
-          value={digit}
-          ref={input => {
-            if (input) {
-              inputRefs.current[index] = input;
-            }
-          }}
-          onFocus={() => {
-            setFocusedIndex(index);
-          }}
-          onKeyPress={({nativeEvent}) => {
-            if (nativeEvent.key === 'Backspace' && !digit && index > 0) {
-              inputRefs.current[index - 1].focus();
-            }
+          pointerEvents={index > 0 && index < 3 ? 'none' : 'auto'}>
+          <TextInput
+            style={[
+              styles.box,
+              // {
+              //   borderColor:
+              //     focusedIndex === index
+              //       ? colors.primary.main
+              //       : colors.grey.textInputBorder,
+              //   borderWidth: focusedIndex === index ? 1.5 : 1,
+              // },
+              focusedIndex === index && styles.focusedBox,
+            ]}
+            maxLength={1}
+            keyboardType="numeric"
+            onChangeText={value => handleOtpChange(value, index)}
+            value={digit}
+            ref={input => {
+              if (input) {
+                inputRefs.current[index] = input;
+              }
+            }}
+            onFocus={() => {
+              setFocusedIndex(index);
+            }}
+            onKeyPress={({nativeEvent}) => {
+              if (nativeEvent.key === 'Backspace' && !digit && index > 0) {
+                inputRefs.current[index - 1].focus();
+              }
 
-            if (parseInt(nativeEvent.key) || parseInt(nativeEvent.key) === 0) {
-              handleOtpChange(nativeEvent.key, index);
-            }
-          }}
-          autoFocus={index === 0}
-        />
+              if (
+                parseInt(nativeEvent.key) ||
+                parseInt(nativeEvent.key) === 0
+              ) {
+                handleOtpChange(nativeEvent.key, index);
+              }
+            }}
+            autoFocus={index === 0}
+          />
+        </View>
       ))}
     </View>
   );
@@ -81,14 +88,18 @@ const styles = ScaledSheet.create({
   box: {
     borderWidth: 1,
     borderColor: colors.grey.textInputBorder,
-    width: 65,
-    height: 65,
+    width: 55,
+    height: 55,
     margin: 10,
     textAlign: 'center',
-    fontSize: getFontSize(20),
+    fontSize: getFontSize(18),
     borderRadius: 10,
     fontFamily: fontFamily.poppinsSemiBold,
     color: colors.primary.main,
+  },
+  focusedBox: {
+    borderColor: colors.primary.main,
+    borderWidth: 1.5,
   },
 });
 
