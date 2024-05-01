@@ -5,10 +5,13 @@ import {getFontSize} from '../../utils/theme/fontScale';
 
 export const styles = ScaledSheet.create({
   mainContainer: {
-    backgroundColor: '#F7F9F9',
+    backgroundColor: colors.white.background,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
     paddingHorizontal: '16@s',
+  },
+  separator: {
+    height: '12@vs',
   },
 });

@@ -3,6 +3,7 @@ export const colors = {
     main: '#1D4ED8',
   },
   grey: {
+    main: '#18181B',
     heading: '#18181B',
     subHeading: '#71717A',
     info: '#5B5B5E',
@@ -11,11 +12,20 @@ export const colors = {
     textInputColor: '#111719',
     placeholder: '#7D7B8A',
     cardBorder: '#E4E4E7',
+    icon: '#52525B',
   },
   white: {
     main: '#FFFFFF',
+    background: '#F7F9F9',
   },
   error: {
     main: '#B00020',
+  },
+  userStatus: {
+    waiting: '#F98B1E',
+  },
+  available: {
+    offline: '#DC2626',
+    online: '#22BB33',
   },
 };

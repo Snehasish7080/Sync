@@ -21,7 +21,7 @@ type AppButtonProps = PressableProps & {
 };
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
-const AppButton = ({
+const AppOutlineButton = ({
   children,
   style,
   textStyle,
@@ -36,6 +36,7 @@ const AppButton = ({
       {typeof children === 'string' && (
         <AppText style={[styles.btnText, textStyle]}>{children}</AppText>
       )}
+
       {typeof children !== 'string' && children}
     </AnimatedPressable>
   );
@@ -46,12 +47,14 @@ const styles = ScaledSheet.create({
     width: scale(248),
     height: 60,
     borderRadius: 10,
-    backgroundColor: colors.primary.main,
+    backgroundColor: colors.white.main,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: colors.primary.main,
   },
   btnText: {
-    color: colors.white.main,
+    color: colors.primary.main,
     fontSize: getFontSize(15),
     fontFamily: fontFamily.poppinsSemiBold,
     width: '100%',
@@ -59,4 +62,4 @@ const styles = ScaledSheet.create({
   },
 });
 
-export default AppButton;
+export default AppOutlineButton;
