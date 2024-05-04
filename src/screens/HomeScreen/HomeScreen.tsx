@@ -2,6 +2,7 @@ import {FlatList, View} from 'react-native';
 import React from 'react';
 import {styles} from './HomeScreenStyles';
 import ProfessionCard from '../../molecules/ProfessionCard/ProfessionCard';
+import SearchTextInput from '../../atoms/SearchTextInput/SearchTextInput';
 
 const data = [
   {
@@ -11,6 +12,10 @@ const data = [
     isOffline: false,
   },
 ];
+
+type searchData = {
+  search: string;
+};
 const HomeScreen = () => {
   return (
     <View style={styles.mainContainer}>
@@ -20,7 +25,10 @@ const HomeScreen = () => {
         renderItem={({item}) => {
           return <ProfessionCard isOffline={item.isOffline} />;
         }}
+        ListHeaderComponent={() => <SearchTextInput />}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
+        contentContainerStyle={styles.flatlistContainerStyle}
+        ListHeaderComponentStyle={styles.flatlistHeaderStyle}
       />
     </View>
   );

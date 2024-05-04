@@ -16,7 +16,7 @@ export const colors = {
   },
   white: {
     main: '#FFFFFF',
-    background: '#F7F9F9',
+    background: '#F4F6F7',
   },
   error: {
     main: '#B00020',

@@ -9,9 +9,15 @@ export const styles = ScaledSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingHorizontal: '16@s',
   },
   separator: {
     height: '12@vs',
+  },
+  flatlistContainerStyle: {
+    paddingHorizontal: '16@s',
+    paddingVertical: '24@vs',
+  },
+  flatlistHeaderStyle: {
+    marginBottom: '16@vs',
   },
 });

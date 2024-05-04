@@ -23,10 +23,12 @@ const ProfessionCard: React.FC<ProfessionCardProps> = ({isOffline}) => {
         <HeartIcon />
       </View>
       <View style={styles.userStatusContainer}>
-        <View style={styles.userStatus}>
-          <AppText style={styles.userStatusText}>Waiting</AppText>
-          <TimerIcon />
-        </View>
+        {!isOffline && (
+          <View style={styles.userStatus}>
+            <AppText style={styles.userStatusText}>Waiting</AppText>
+            <TimerIcon />
+          </View>
+        )}
       </View>
       <View style={styles.infocontainer}>
         <View style={styles.imageContainer}>

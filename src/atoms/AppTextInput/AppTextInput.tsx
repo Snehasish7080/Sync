@@ -96,6 +96,7 @@ const styles = ScaledSheet.create({
     flex: 1,
     fontSize: getFontSize(18),
     color: colors.grey.textInputColor,
+    fontFamily: fontFamily.poppinsRegular,
   },
 });
 
