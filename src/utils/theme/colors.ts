@@ -13,6 +13,8 @@ export const colors = {
     placeholder: '#7D7B8A',
     cardBorder: '#E4E4E7',
     icon: '#52525B',
+    bottomBarBorder: '#F4F4F5',
+    bottomTabBarIcon: '#6B7280',
   },
   white: {
     main: '#FFFFFF',

@@ -1,15 +1,15 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {AuthenticatedRouteList} from './AuthenticatedTypes';
-import HomeScreen from '../../screens/HomeScreen/HomeScreen';
+import TabNavigation from '../TabNavigation/TabNavigation';
 
 const Stack = createNativeStackNavigator<AuthenticatedRouteList>();
 
 const Authenticated = () => {
   return (
-    <Stack.Navigator initialRouteName="HomeScreen">
+    <Stack.Navigator initialRouteName="HomeScreenNavigation">
       <Stack.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="HomeScreenNavigation"
+        component={TabNavigation}
         options={{
           headerShown: false,
         }}

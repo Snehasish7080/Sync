@@ -13,10 +13,13 @@ const data = [
   },
 ];
 
-type searchData = {
-  search: string;
-};
 const HomeScreen = () => {
+  const listHeaderComponent = () => {
+    return <SearchTextInput />;
+  };
+  const itemSeparator = () => {
+    return <View style={styles.separator} />;
+  };
   return (
     <View style={styles.mainContainer}>
       <FlatList
@@ -25,10 +28,11 @@ const HomeScreen = () => {
         renderItem={({item}) => {
           return <ProfessionCard isOffline={item.isOffline} />;
         }}
-        ListHeaderComponent={() => <SearchTextInput />}
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
+        ListHeaderComponent={listHeaderComponent()}
+        ItemSeparatorComponent={() => itemSeparator()}
         contentContainerStyle={styles.flatlistContainerStyle}
         ListHeaderComponentStyle={styles.flatlistHeaderStyle}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

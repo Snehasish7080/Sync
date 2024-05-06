@@ -1,7 +1,7 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type AuthenticatedRouteList = {
-  HomeScreen: undefined;
+  HomeScreenNavigation: undefined;
 };
 
 export type AuthenticatedNavigationProp<

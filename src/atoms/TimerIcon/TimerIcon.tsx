@@ -19,18 +19,25 @@ const Icon = Skia.SVG.MakeFromString(
 `,
 )!;
 
-const TimerIcon: React.FC = () => {
+type TimerIconProps = {
+  color?: string;
+  size?: number;
+};
+const TimerIcon: React.FC<TimerIconProps> = ({
+  color = colors.white.main,
+  size = 16,
+}) => {
   const src = rect(0, 0, 16, 16);
-  const dst = rect(0, 0, 16, 16);
+  const dst = rect(0, 0, size, size);
 
   const paint = useMemo(() => Skia.Paint(), []);
   paint.setColorFilter(
-    Skia.ColorFilter.MakeBlend(Skia.Color(colors.white.main), BlendMode.SrcIn),
+    Skia.ColorFilter.MakeBlend(Skia.Color(color), BlendMode.SrcIn),
   );
   return (
-    <Canvas style={{width: 16, height: 16}}>
+    <Canvas style={{width: size, height: size}}>
       <Group layer={paint} transform={fitbox('contain', src, dst)}>
-        <ImageSVG svg={Icon} x={0} y={0} width={16} height={16} />
+        <ImageSVG svg={Icon} x={0} y={0} width={size} height={size} />
       </Group>
     </Canvas>
   );
