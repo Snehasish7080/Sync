@@ -18,18 +18,25 @@ const Icon = Skia.SVG.MakeFromString(
 `,
 )!;
 
-const VideoIcon: React.FC = () => {
-  const src = rect(0, 0, 18, 18);
-  const dst = rect(0, 0, 18, 18);
+type VideoIconProps = {
+  size?: number;
+  color?: string;
+};
+const VideoIcon: React.FC<VideoIconProps> = ({
+  color = colors.white.main,
+  size = 18,
+}) => {
+  const src = rect(0, 0, 21, 20);
+  const dst = rect(0, 0, size, size);
 
   const paint = useMemo(() => Skia.Paint(), []);
   paint.setColorFilter(
-    Skia.ColorFilter.MakeBlend(Skia.Color(colors.white.main), BlendMode.SrcIn),
+    Skia.ColorFilter.MakeBlend(Skia.Color(color), BlendMode.SrcIn),
   );
   return (
-    <Canvas style={{width: 18, height: 18}}>
+    <Canvas style={{width: size + 1, height: size}}>
       <Group layer={paint} transform={fitbox('contain', src, dst)}>
-        <ImageSVG svg={Icon} x={0} y={0} width={16} height={18} />
+        <ImageSVG svg={Icon} x={0} y={0} width={size + 1} height={size} />
       </Group>
     </Canvas>
   );

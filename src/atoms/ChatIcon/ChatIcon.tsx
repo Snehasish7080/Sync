@@ -18,21 +18,25 @@ const Icon = Skia.SVG.MakeFromString(
 `,
 )!;
 
-const ChatIcon: React.FC = () => {
-  const src = rect(0, 0, 18, 18);
-  const dst = rect(0, 0, 18, 18);
+type ChatIconProps = {
+  size?: number;
+  color?: string;
+};
+const ChatIcon: React.FC<ChatIconProps> = ({
+  color = colors.primary.main,
+  size = 18,
+}) => {
+  const src = rect(0, 0, 19, 18);
+  const dst = rect(0, 0, size, size);
 
   const paint = useMemo(() => Skia.Paint(), []);
   paint.setColorFilter(
-    Skia.ColorFilter.MakeBlend(
-      Skia.Color(colors.primary.main),
-      BlendMode.SrcIn,
-    ),
+    Skia.ColorFilter.MakeBlend(Skia.Color(color), BlendMode.SrcIn),
   );
   return (
-    <Canvas style={{width: 18, height: 18}}>
+    <Canvas style={{width: size, height: size}}>
       <Group layer={paint} transform={fitbox('contain', src, dst)}>
-        <ImageSVG svg={Icon} x={0} y={0} width={16} height={18} />
+        <ImageSVG svg={Icon} x={0} y={0} width={size} height={size} />
       </Group>
     </Canvas>
   );

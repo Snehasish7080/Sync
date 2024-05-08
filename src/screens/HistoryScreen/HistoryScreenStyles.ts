@@ -5,8 +5,8 @@ export const styles = ScaledSheet.create({
   mainContainer: {
     backgroundColor: colors.white.background,
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    paddingVertical: '24@vs',
+    paddingHorizontal: '16@s',
   },
   separator: {
     height: '12@vs',
