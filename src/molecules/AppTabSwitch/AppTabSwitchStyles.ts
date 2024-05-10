@@ -5,7 +5,7 @@ import {fontFamily} from '../../utils/theme/fontFamily';
 
 export const styles = ScaledSheet.create({
   mainContainer: {
-    backgroundColor: colors.white.background,
+    backgroundColor: colors.white.main,
     borderWidth: 1,
     height: '50@vs',
     borderRadius: 6,
@@ -13,6 +13,7 @@ export const styles = ScaledSheet.create({
     position: 'relative',
     flexDirection: 'row',
     alignItems: 'center',
+    borderColor: colors.primary.main,
   },
   selector: {
     position: 'absolute',

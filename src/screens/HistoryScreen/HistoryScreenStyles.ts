@@ -3,16 +3,16 @@ import {colors} from '../../utils/theme/colors';
 
 export const styles = ScaledSheet.create({
   mainContainer: {
-    backgroundColor: colors.white.background,
+    backgroundColor: colors.white.main,
     flex: 1,
     paddingVertical: '24@vs',
     paddingHorizontal: '16@s',
   },
   separator: {
-    height: '12@vs',
+    height: 1,
+    backgroundColor: colors.grey.cardBorder,
   },
   flatlistContainerStyle: {
-    paddingHorizontal: '16@s',
     paddingVertical: '24@vs',
   },
   flatlistHeaderStyle: {

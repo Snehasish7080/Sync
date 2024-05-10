@@ -30,4 +30,7 @@ export const colors = {
     offline: '#DC2626',
     online: '#22BB33',
   },
+  success: {
+    main: '#22BB33',
+  },
 };
