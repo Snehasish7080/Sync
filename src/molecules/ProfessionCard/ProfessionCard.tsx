@@ -1,4 +1,4 @@
-import {Image, View} from 'react-native';
+import {Image, Pressable, View} from 'react-native';
 import React from 'react';
 import {styles} from './ProfessionCardStyles';
 import AppText from '../../atoms/AppText/AppText';
@@ -15,10 +15,14 @@ import VideoIcon from '../../atoms/VideoIcon/VideoIcon';
 
 type ProfessionCardProps = {
   isOffline: boolean;
+  onPress: () => void;
 };
-const ProfessionCard: React.FC<ProfessionCardProps> = ({isOffline}) => {
+const ProfessionCard: React.FC<ProfessionCardProps> = ({
+  isOffline,
+  onPress,
+}) => {
   return (
-    <View style={styles.mainContainer}>
+    <Pressable style={styles.mainContainer} onPress={onPress}>
       <View style={styles.favContainer}>
         <HeartIcon />
       </View>
@@ -88,7 +92,7 @@ const ProfessionCard: React.FC<ProfessionCardProps> = ({isOffline}) => {
           </AppButton>
         )}
       </View>
-    </View>
+    </Pressable>
   );
 };
 

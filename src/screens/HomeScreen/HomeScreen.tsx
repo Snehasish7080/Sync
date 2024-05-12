@@ -3,6 +3,9 @@ import React from 'react';
 import {styles} from './HomeScreenStyles';
 import ProfessionCard from '../../molecules/ProfessionCard/ProfessionCard';
 import SearchTextInput from '../../atoms/SearchTextInput/SearchTextInput';
+import {useNavigation} from '@react-navigation/native';
+import {AuthenticatedRouteList} from '../../navigations/Authenticated/AuthenticatedTypes';
+import {NativeStackNavigationProp} from 'react-native-screens/lib/typescript/native-stack/types';
 
 const data = [
   {
@@ -14,6 +17,8 @@ const data = [
 ];
 
 const HomeScreen = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthenticatedRouteList>>();
   const listHeaderComponent = () => {
     return <SearchTextInput />;
   };
@@ -26,7 +31,14 @@ const HomeScreen = () => {
         data={data}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => {
-          return <ProfessionCard isOffline={item.isOffline} />;
+          return (
+            <ProfessionCard
+              isOffline={item.isOffline}
+              onPress={() => {
+                navigation.navigate('UserDetailScreen');
+              }}
+            />
+          );
         }}
         ListHeaderComponent={listHeaderComponent()}
         ItemSeparatorComponent={() => itemSeparator()}

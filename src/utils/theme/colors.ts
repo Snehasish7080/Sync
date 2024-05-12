@@ -33,4 +33,7 @@ export const colors = {
   success: {
     main: '#22BB33',
   },
+  heart: {
+    main: '#E11D48',
+  },
 };
