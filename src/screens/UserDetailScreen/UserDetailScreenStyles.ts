@@ -15,9 +15,10 @@ export const styles = ScaledSheet.create({
     fontFamily: fontFamily.poppinsSemiBold,
   },
   scrollviewStyle: {
-    flex: 1,
+    // flex: 1,
     paddingHorizontal: '16@s',
     backgroundColor: colors.white.main,
+    paddingBottom: '24@vs',
   },
   profileImage: {
     width: '90@s',

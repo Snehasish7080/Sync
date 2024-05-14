@@ -1,5 +1,5 @@
 import {Image, ScrollView, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {styles} from './UserDetailScreenStyles';
 import AppText from '../../atoms/AppText/AppText';
 import InfoIcon from '../../atoms/InfoIcon/InfoIcon';
@@ -8,8 +8,14 @@ import {scale, verticalScale} from 'react-native-size-matters';
 import SeparatorIcon from '../../atoms/SeparatorIcon/SeparatorIcon';
 import LocationIcon from '../../atoms/LocationIcon/LocationIcon';
 import EducationIcon from '../../atoms/EducationIcon/EducationIcon';
+import Expandable from '../../molecules/Expandable/Expandable';
+import {colors} from '../../utils/theme/colors';
 
 const UserDetailScreen = () => {
+  const [experienceDropdown, setExperienceDropdown] = useState(0);
+  const handleExperience = (index: number) => {
+    setExperienceDropdown(index);
+  };
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -86,6 +92,32 @@ const UserDetailScreen = () => {
             nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
             tellus elit sed risus. Maecenas eget condiment ad lito
           </AppText>
+        </View>
+        <View style={styles.bioCard}>
+          <AppText style={styles.title}>Experience</AppText>
+          {[1, 2].map((item, index) => {
+            return (
+              <View
+                key={index}
+                style={{
+                  paddingBottom: !index ? verticalScale(8) : 0,
+                  marginBottom: !index ? verticalScale(8) : 0,
+                  borderBottomWidth: !index ? 1 : 0,
+                  borderColor: colors.grey.cardBorder,
+                }}>
+                <Expandable
+                  isOpen={experienceDropdown === item}
+                  onPress={() => {
+                    if (experienceDropdown === item) {
+                      handleExperience(0);
+                    } else {
+                      handleExperience(item);
+                    }
+                  }}
+                />
+              </View>
+            );
+          })}
         </View>
       </View>
     </ScrollView>

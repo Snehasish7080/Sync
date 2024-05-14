@@ -18,18 +18,21 @@ const Icon = Skia.SVG.MakeFromString(
 `,
 )!;
 
-const BackIcon: React.FC = () => {
+type BackIconProps = {
+  size?: number;
+};
+const BackIcon: React.FC<BackIconProps> = ({size = 32}) => {
   const src = rect(0, 0, 32, 32);
-  const dst = rect(0, 0, 32, 32);
+  const dst = rect(0, 0, size, size);
 
   const paint = useMemo(() => Skia.Paint(), []);
   paint.setColorFilter(
     Skia.ColorFilter.MakeBlend(Skia.Color(colors.grey.main), BlendMode.SrcIn),
   );
   return (
-    <Canvas style={{width: 32, height: 32}}>
+    <Canvas style={{width: size, height: size}}>
       <Group layer={paint} transform={fitbox('contain', src, dst)}>
-        <ImageSVG svg={Icon} x={0} y={0} width={32} height={32} />
+        <ImageSVG svg={Icon} x={0} y={0} width={size} height={size} />
       </Group>
     </Canvas>
   );
