@@ -5,7 +5,7 @@ import {fontFamily} from '../../utils/theme/fontFamily';
 
 export const styles = ScaledSheet.create({
   mainContainer: {
-    flexDirection: 'row',
+    // flexDirection: 'row',
   },
   iconContainer: {
     width: 24,
@@ -15,5 +15,20 @@ export const styles = ScaledSheet.create({
     flex: 1,
     fontSize: getFontSize(15),
     color: colors.grey.label,
+  },
+  textContainer: {
+    flexDirection: 'row',
+  },
+  imageContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: '8@vs',
+    marginTop: '4@vs',
+  },
+  image: {
+    width: '82@s',
+    height: '82@s',
+    borderRadius: '4@s',
+    marginRight: '6@s',
   },
 });

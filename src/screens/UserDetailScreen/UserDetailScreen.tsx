@@ -1,4 +1,4 @@
-import {Image, ScrollView, View} from 'react-native';
+import {FlatList, Image, ScrollView, View} from 'react-native';
 import React, {useState} from 'react';
 import {styles} from './UserDetailScreenStyles';
 import AppText from '../../atoms/AppText/AppText';
@@ -10,6 +10,7 @@ import LocationIcon from '../../atoms/LocationIcon/LocationIcon';
 import EducationIcon from '../../atoms/EducationIcon/EducationIcon';
 import Expandable from '../../molecules/Expandable/Expandable';
 import {colors} from '../../utils/theme/colors';
+import ReviewCard from '../../molecules/ReviewCard/ReviewCard';
 
 const UserDetailScreen = () => {
   const [experienceDropdown, setExperienceDropdown] = useState(0);
@@ -114,11 +115,55 @@ const UserDetailScreen = () => {
                       handleExperience(item);
                     }
                   }}
+                  showImage={false}
                 />
               </View>
             );
           })}
         </View>
+        <View style={styles.bioCard}>
+          <AppText style={styles.title}>Achievments</AppText>
+          {[1, 2].map((item, index) => {
+            return (
+              <View
+                key={index}
+                style={{
+                  paddingBottom: !index ? verticalScale(8) : 0,
+                  marginBottom: !index ? verticalScale(8) : 0,
+                  borderBottomWidth: !index ? 1 : 0,
+                  borderColor: colors.grey.cardBorder,
+                }}>
+                <Expandable
+                  isOpen={experienceDropdown === item}
+                  onPress={() => {
+                    if (experienceDropdown === item) {
+                      handleExperience(0);
+                    } else {
+                      handleExperience(item);
+                    }
+                  }}
+                  showImage={true}
+                />
+              </View>
+            );
+          })}
+        </View>
+
+        <View style={styles.reviewTitleContainer}>
+          <AppText style={styles.title}>Reviews</AppText>
+          <AppText style={styles.seeAllLink}>see all</AppText>
+        </View>
+
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          horizontal
+          data={['1', '2', '3', '4', '5']}
+          keyExtractor={item => item}
+          renderItem={({item}) => {
+            return <ReviewCard />;
+          }}
+          ItemSeparatorComponent={() => <View style={{width: 12}} />}
+        />
       </View>
     </ScrollView>
   );

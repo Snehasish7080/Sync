@@ -122,4 +122,18 @@ export const styles = ScaledSheet.create({
     color: colors.grey.label,
     marginTop: '8@vs',
   },
+  reviewTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    justifyContent: 'space-between',
+    marginTop: '20@vs',
+    paddingHorizontal: '16@s',
+  },
+  seeAllLink: {
+    color: colors.primary.main,
+    fontSize: getFontSize(13),
+    fontFamily: fontFamily.poppinsMedium,
+    lineHeight: 15.6,
+  },
 });
