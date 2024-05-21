@@ -37,7 +37,9 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
       control={control}
       render={({field: {onChange, onBlur, value}, fieldState: {error}}) => (
         <View style={style}>
-          <AppText style={[styles.lableStyle, labelStyle]}>{lable}</AppText>
+          {lable && (
+            <AppText style={[styles.lableStyle, labelStyle]}>{lable}</AppText>
+          )}
           <View
             style={[
               styles.textInputBox,

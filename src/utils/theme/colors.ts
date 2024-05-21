@@ -1,6 +1,7 @@
 export const colors = {
   primary: {
     main: '#1D4ED8',
+    light: '#DBEAFE',
   },
   grey: {
     main: '#18181B',
@@ -15,6 +16,7 @@ export const colors = {
     icon: '#52525B',
     bottomBarBorder: '#F4F4F5',
     bottomTabBarIcon: '#6B7280',
+    amountBorder: '#A1A1AA',
   },
   white: {
     main: '#FFFFFF',
