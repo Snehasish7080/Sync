@@ -8,7 +8,6 @@ export const styles = ScaledSheet.create({
     backgroundColor: colors.white.main,
     flex: 1,
     paddingHorizontal: '16@s',
-    paddingVertical: '24@vs',
   },
   cashContainer: {
     backgroundColor: colors.primary.light,
@@ -55,5 +54,34 @@ export const styles = ScaledSheet.create({
     fontSize: getFontSize(16),
     color: colors.grey.main,
     fontFamily: fontFamily.poppinsMedium,
+  },
+  btn: {
+    width: '100%',
+    marginTop: '24@vs',
+    height: '42@vs',
+  },
+  btnText: {
+    fontSize: getFontSize(18),
+  },
+  scrollViewContainer: {
+    paddingVertical: '24@vs',
+  },
+  titleSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: '20@vs',
+  },
+  title: {
+    color: colors.grey.main,
+    fontSize: getFontSize(18),
+    fontFamily: fontFamily.poppinsSemiBold,
+  },
+  link: {
+    fontSize: getFontSize(13),
+    color: colors.primary.main,
+  },
+  cellContainer: {
+    marginTop: '18@vs',
   },
 });
