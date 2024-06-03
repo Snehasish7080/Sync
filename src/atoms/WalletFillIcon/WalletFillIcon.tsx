@@ -21,22 +21,26 @@ const Icon = Skia.SVG.MakeFromString(
 
 type WalletFillIconTypes = {
   color?: string;
+  width?: number;
+  height?: number;
 };
 
 const WalletFillIcon: React.FC<WalletFillIconTypes> = ({
   color = colors.primary.main,
+  height = 49,
+  width = 48,
 }) => {
   const src = rect(0, 0, 48, 49);
-  const dst = rect(0, 0, 48, 49);
+  const dst = rect(0, 0, width, height);
 
   const paint = useMemo(() => Skia.Paint(), []);
   paint.setColorFilter(
     Skia.ColorFilter.MakeBlend(Skia.Color(color), BlendMode.SrcIn),
   );
   return (
-    <Canvas style={{width: 48, height: 49}}>
+    <Canvas style={{width: width, height: height}}>
       <Group layer={paint} transform={fitbox('contain', src, dst)}>
-        <ImageSVG svg={Icon} x={0} y={0} width={48} height={49} />
+        <ImageSVG svg={Icon} x={0} y={0} width={width} height={height} />
       </Group>
     </Canvas>
   );

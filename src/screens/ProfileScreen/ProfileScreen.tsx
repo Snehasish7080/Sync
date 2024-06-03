@@ -2,6 +2,8 @@ import {Image, ScrollView, View} from 'react-native';
 import React from 'react';
 import {styles} from './ProfileScreenStyles';
 import AppText from '../../atoms/AppText/AppText';
+import WalletFillIcon from '../../atoms/WalletFillIcon/WalletFillIcon';
+import AppOutlineButton from '../../atoms/AppOutlineButton/AppOutlineButton';
 
 const ProfileScreen = () => {
   return (
@@ -19,6 +21,18 @@ const ProfileScreen = () => {
           <View style={styles.infoContainer}>
             <AppText style={styles.userName}>Karishma</AppText>
             <AppText style={styles.mobile}>4859483456</AppText>
+          </View>
+        </View>
+        <View style={styles.wallerContainer}>
+          <View style={styles.walletIconContainer}>
+            <WalletFillIcon width={48} height={48} />
+            <AppText style={styles.appcash}>App Cash</AppText>
+          </View>
+          <View style={styles.cashContainer}>
+            <AppText style={styles.cash}>₹0.00</AppText>
+            <AppOutlineButton style={styles.btn} textStyle={styles.btnText}>
+              Add Money
+            </AppOutlineButton>
           </View>
         </View>
       </ScrollView>
