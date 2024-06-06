@@ -64,6 +64,7 @@ export const styles = ScaledSheet.create({
     width: '113@s',
     height: '35@vs',
     borderRadius: '6@s',
+    backgroundColor: 'transparent',
   },
   btnText: {
     fontSize: getFontSize(16),
@@ -74,5 +75,26 @@ export const styles = ScaledSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: '10@vs',
+  },
+  optionContainer: {
+    marginTop: '26@vs',
+  },
+  option: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingVertical: '15@vs',
+    borderTopWidth: 1,
+    borderColor: colors.grey.cardBorder,
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  optionText: {
+    color: colors.grey.label,
+    fontSize: getFontSize(18),
+    fontFamily: fontFamily.poppinsMedium,
+    marginLeft: '16@s',
   },
 });

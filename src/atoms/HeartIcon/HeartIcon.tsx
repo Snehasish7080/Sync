@@ -18,18 +18,21 @@ const Icon = Skia.SVG.MakeFromString(
 `,
 )!;
 
-const HeartIcon: React.FC = () => {
+type HeartIconProps = {
+  size?: number;
+};
+const HeartIcon: React.FC<HeartIconProps> = ({size = 24}) => {
   const src = rect(0, 0, 24, 24);
-  const dst = rect(0, 0, 24, 24);
+  const dst = rect(0, 0, size, size);
 
   const paint = useMemo(() => Skia.Paint(), []);
   paint.setColorFilter(
     Skia.ColorFilter.MakeBlend(Skia.Color(colors.grey.icon), BlendMode.SrcIn),
   );
   return (
-    <Canvas style={{width: 24, height: 24}}>
+    <Canvas style={{width: size, height: size}}>
       <Group layer={paint} transform={fitbox('contain', src, dst)}>
-        <ImageSVG svg={Icon} x={0} y={0} width={24} height={24} />
+        <ImageSVG svg={Icon} x={0} y={0} width={size} height={size} />
       </Group>
     </Canvas>
   );
