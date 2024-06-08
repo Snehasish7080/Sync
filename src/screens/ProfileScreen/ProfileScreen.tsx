@@ -1,4 +1,4 @@
-import {Image, ScrollView, View} from 'react-native';
+import {Image, Pressable, ScrollView, View} from 'react-native';
 import React from 'react';
 import {styles} from './ProfileScreenStyles';
 import AppText from '../../atoms/AppText/AppText';
@@ -10,11 +10,15 @@ import ShareIcon from '../../atoms/ShareIcon/ShareIcon';
 import TermIcon from '../../atoms/TermIcon/TermIcon';
 import PrivacyIcon from '../../atoms/PrivacyIcon/PrivacyIcon';
 import LogoutIcon from '../../atoms/LogoutIcon/LogoutIcon';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {AuthenticatedRouteList} from '../../navigations/Authenticated/AuthenticatedTypes';
 
 const optionList = [
   {
     icon: () => <HeartIcon size={28} />,
     text: 'Favourites',
+    navigation: 'FavouriteScreen',
   },
   {
     icon: () => <ShareIcon size={28} />,
@@ -34,6 +38,8 @@ const optionList = [
   },
 ];
 const ProfileScreen = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthenticatedRouteList>>();
   return (
     <View style={styles.mainContainer}>
       <ScrollView
@@ -67,13 +73,22 @@ const ProfileScreen = () => {
         <View style={styles.optionContainer}>
           {optionList.map((item, index) => {
             return (
-              <View style={styles.option} key={index}>
+              <Pressable
+                style={styles.option}
+                key={index}
+                onPress={() => {
+                  if (item?.navigation) {
+                    navigation.navigate(
+                      item.navigation as keyof AuthenticatedRouteList,
+                    );
+                  }
+                }}>
                 <View style={styles.iconContainer}>
                   {item.icon()}
                   <AppText style={styles.optionText}>{item.text}</AppText>
                 </View>
                 <RightArrowIcon />
-              </View>
+              </Pressable>
             );
           })}
         </View>

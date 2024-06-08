@@ -47,6 +47,7 @@ export const styles = ScaledSheet.create({
     backgroundColor: colors.primary.light,
     padding: '16@s',
     borderRadius: '12@s',
+    marginTop: '16@vs',
   },
   appcash: {
     fontSize: getFontSize(18),
