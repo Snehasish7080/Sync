@@ -6,8 +6,6 @@ import {fontFamily} from '../../utils/theme/fontFamily';
 export const styles = ScaledSheet.create({
   mainContainer: {
     backgroundColor: colors.white.main,
-    flex: 1,
-    // paddingHorizontal: '10@s',
     paddingBottom: '14@vs',
     borderBottomWidth: 1,
     borderBottomColor: colors.grey.cardBorder,

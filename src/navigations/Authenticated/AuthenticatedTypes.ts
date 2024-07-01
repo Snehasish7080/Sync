@@ -3,6 +3,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 export type AuthenticatedRouteList = {
   HomeScreenNavigation: undefined;
   UserDetailScreen: undefined;
+  TransactionScreen: undefined;
   FavouriteScreen: undefined;
 };
 

@@ -1,4 +1,4 @@
-import {Pressable, View} from 'react-native';
+import {Pressable, StyleProp, View, ViewStyle} from 'react-native';
 import React, {FC} from 'react';
 import BackIcon from '../../atoms/BackIcon/BackIcon';
 import {useNavigation} from '@react-navigation/native';
@@ -7,11 +7,12 @@ import AppText from '../../atoms/AppText/AppText';
 
 type AppHeaderProps = {
   title?: string;
+  style?: StyleProp<ViewStyle>;
 };
-const AppHeader: FC<AppHeaderProps> = ({title}) => {
+const AppHeader: FC<AppHeaderProps> = ({title, style}) => {
   const navigation = useNavigation();
   return (
-    <View style={styles.mainContainer}>
+    <View style={[styles.mainContainer, style]}>
       <Pressable onPress={() => navigation.goBack()}>
         <BackIcon />
       </Pressable>

@@ -1,4 +1,4 @@
-import {ScrollView, View} from 'react-native';
+import {Pressable, ScrollView, View} from 'react-native';
 import React from 'react';
 import {styles} from './WalletScreenStyles';
 import AppText from '../../atoms/AppText/AppText';
@@ -7,11 +7,16 @@ import AppTextInput from '../../atoms/AppTextInput/AppTextInput';
 import {useForm} from 'react-hook-form';
 import AppOutlineButton from '../../atoms/AppOutlineButton/AppOutlineButton';
 import TransactionCell from '../../molecules/TransactionCell/TransactionCell';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {AuthenticatedRouteList} from '../../navigations/Authenticated/AuthenticatedTypes';
 
 type cashData = {
   amount: string;
 };
 const WalletScreen = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AuthenticatedRouteList>>();
   const {control, handleSubmit} = useForm<cashData>({
     defaultValues: {
       amount: '',
@@ -66,7 +71,12 @@ const WalletScreen = () => {
 
         <View style={styles.titleSection}>
           <AppText style={styles.title}>Your Transactions</AppText>
-          <AppText style={styles.link}>See all</AppText>
+          <Pressable
+            onPress={() => {
+              navigation.navigate('TransactionScreen');
+            }}>
+            <AppText style={styles.link}>See all</AppText>
+          </Pressable>
         </View>
 
         <View style={styles.cellContainer}>

@@ -6,6 +6,8 @@ import UserDetailScreen from '../../screens/UserDetailScreen/UserDetailScreen';
 import UserHeader from '../../molecules/UserHeader/UserHeader';
 import FavouriteScreen from '../../screens/FavouriteScreen/FavouriteScreen';
 import AppHeader from '../../molecules/AppHeader/AppHeader';
+import TransactionScreen from '../../screens/TransactionScreen/TransactionScreen';
+import {colors} from '../../utils/theme/colors';
 
 const Stack = createNativeStackNavigator<AuthenticatedRouteList>();
 
@@ -25,6 +27,21 @@ const Authenticated = () => {
         options={{
           headerShown: true,
           header: () => <UserHeader />,
+        }}
+      />
+      <Stack.Screen
+        name="TransactionScreen"
+        component={TransactionScreen}
+        options={{
+          headerShown: true,
+          header: () => (
+            <AppHeader
+              title="Transactions"
+              style={{
+                backgroundColor: colors.white.main,
+              }}
+            />
+          ),
         }}
       />
       <Stack.Screen
