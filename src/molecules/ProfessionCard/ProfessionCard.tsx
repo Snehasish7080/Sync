@@ -16,10 +16,12 @@ import VideoIcon from '../../atoms/VideoIcon/VideoIcon';
 type ProfessionCardProps = {
   isOffline: boolean;
   onPress: () => void;
+  onPressChat?: () => void;
 };
 const ProfessionCard: React.FC<ProfessionCardProps> = ({
   isOffline,
   onPress,
+  onPressChat,
 }) => {
   return (
     <Pressable style={styles.mainContainer} onPress={onPress}>
@@ -72,10 +74,10 @@ const ProfessionCard: React.FC<ProfessionCardProps> = ({
         {!isOffline && (
           <AppOutlineButton style={styles.chatBtn}>
             <View style={styles.chatLableContainer}>
-              <View style={styles.chatLable}>
+              <Pressable style={styles.chatLable} onPress={onPressChat}>
                 <AppText style={styles.chatLableText}>Chat</AppText>
                 <ChatIcon />
-              </View>
+              </Pressable>
               <AppText style={styles.price}>₹ 22/min</AppText>
             </View>
           </AppOutlineButton>

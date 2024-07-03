@@ -37,6 +37,9 @@ const HomeScreen = () => {
               onPress={() => {
                 navigation.navigate('UserDetailScreen');
               }}
+              onPressChat={() => {
+                navigation.navigate('ChatScreen');
+              }}
             />
           );
         }}

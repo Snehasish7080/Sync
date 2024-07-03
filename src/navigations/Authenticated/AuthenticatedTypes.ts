@@ -5,6 +5,7 @@ export type AuthenticatedRouteList = {
   UserDetailScreen: undefined;
   TransactionScreen: undefined;
   FavouriteScreen: undefined;
+  ChatScreen: undefined;
 };
 
 export type AuthenticatedNavigationProp<

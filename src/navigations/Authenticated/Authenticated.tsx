@@ -8,6 +8,7 @@ import FavouriteScreen from '../../screens/FavouriteScreen/FavouriteScreen';
 import AppHeader from '../../molecules/AppHeader/AppHeader';
 import TransactionScreen from '../../screens/TransactionScreen/TransactionScreen';
 import {colors} from '../../utils/theme/colors';
+import ChatScreen from '../../screens/ChatScreen/ChatScreen';
 
 const Stack = createNativeStackNavigator<AuthenticatedRouteList>();
 
@@ -37,6 +38,21 @@ const Authenticated = () => {
           header: () => (
             <AppHeader
               title="Transactions"
+              style={{
+                backgroundColor: colors.white.main,
+              }}
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="ChatScreen"
+        component={ChatScreen}
+        options={{
+          headerShown: true,
+          header: () => (
+            <AppHeader
+              title="Chat Screen"
               style={{
                 backgroundColor: colors.white.main,
               }}

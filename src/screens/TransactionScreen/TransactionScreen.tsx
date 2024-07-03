@@ -1,9 +1,7 @@
-import {FlatList, Image, ScrollView, View} from 'react-native';
-import React, {useState} from 'react';
+import {ScrollView, View} from 'react-native';
+import React from 'react';
 import {ScaledSheet} from 'react-native-size-matters';
 import {colors} from '../../utils/theme/colors';
-import {getFontSize} from '../../utils/theme/fontScale';
-import {fontFamily} from '../../utils/theme/fontFamily';
 import TransactionCell from '../../molecules/TransactionCell/TransactionCell';
 
 const TransactionScreen = () => {
